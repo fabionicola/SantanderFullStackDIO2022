@@ -240,12 +240,12 @@
         .fg-3{
             flex-grow: 3;
         }
-        .flex-containerBasics{
+        .flex-containerBasis{
             max-width: 300px;
             border: 1px solid black;
             display: flex;
         }
-        .itemBasics{
+        .itemBasis{
             background-color: coral;
             color: white;
             text-align: center;
@@ -253,6 +253,115 @@
         }
         .bauto{
             flex-basis: auto;
+        }
+        .flex-containerShrink{
+            display: flex;
+            border: 1px solid black;
+            max-width: 350px;
+        }
+        .itemShrink{
+            background-color: blue;
+            font-size: 24px;
+            text-align: center;
+            margin: 5px;
+            color: white;
+        }
+        .shrink-1{
+            flex-shrink: 1;
+        }
+        .shrink-0{
+            flex-shrink: 0;
+            flex-basis: 100px;
+        }
+        .shrink-2{
+            flex-shrink: 2;
+        }.shrink-3{
+            flex-shrink: 3;
+        }
+        .flex-containerFlex{
+            display: flex;
+            border: 1px solid black;
+            max-width: 400px;
+        }
+        .itemFlex{
+            background-color: brown;
+            color: white;
+            text-align: center;
+            margin: 5px;
+        }
+        .flex-1{
+            flex: 1;
+            /*grow = 1, shrink = 1, basis = 0*/
+        }
+        .flex-2{
+            flex: 2;
+            /*grow = 2, shrink = 1, basis = 0*/
+        }
+        .flex-containerOrder{
+            display: flex;
+            max-width: 350px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+        }
+        .itemOrder{
+            flex: 1;
+            background: orange;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            margin: 5px;
+            
+        }
+        .o1{
+            order: 1;
+        }
+        .o2{
+            order: 2;
+        }
+        .o3{
+            order: 3;
+        }
+        .o4{
+            order: 4;
+        }
+        .direction{
+         flex-direction: column;   
+        }
+        .flex-containerAF{
+            display: flex;
+            max-width: 350px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            
+        }
+        .align-containerAF{
+            align-items: center;
+        }
+        .itemAF{
+            flex: 1;
+            background: green;
+            color: yellow;
+            text-align: center;
+            font-size: 24px;
+            margin: 5px;
+        }
+        .centerAF{
+            align-self: center;
+        }
+        .startAF{
+            align-self: flex-start;
+        }
+        .endAF{
+            align-self: flex-end;
+        }
+        .baselineAF{
+            align-self: baseline;
+        }
+        .stretchAF{
+            align-self: stretch;
+        }
+        .autoAF{
+            align-self: auto;
         }
     </style>
 </head>
@@ -489,18 +598,109 @@
         </div>
         <h1>FLEX CONTAINER BASIS</h1>
         <h3>Basis</h3>
-        <div class="flex-containerBasics">
-            <div class="itemBasics bauto fg-1">A</div>
-            <div class="itemBasics bauto fg-1">Bbb</div>
-            <div class="itemBasics bauto fg-1">C</div>
-            <div class="itemBasics bauto fg-1">DEF</div>
+        <div class="flex-containerBasis">
+            <div class="itemBasis bauto fg-1">A</div>
+            <div class="itemBasis bauto fg-1">Bbb</div>
+            <div class="itemBasis bauto fg-1">C</div>
+            <div class="itemBasis bauto fg-1">DEF</div>
         </div>
         <h3>Basis </h3>
-        <div class="flex-containerBasics">
-            <div class="itemBasics bauto fg-0">A</div>
-            <div class="itemBasics bauto fg-0">Bbb</div>
-            <div class="itemBasics bauto fg-0">C</div>
-            <div class="itemBasics bauto fg-0">DEF</div>
+        <div class="flex-containerBasis">
+            <div class="itemBasis bauto fg-0">A</div>
+            <div class="itemBasis bauto fg-0">Bbb</div>
+            <div class="itemBasis bauto fg-0">C</div>
+            <div class="itemBasis bauto fg-0">DEF</div>
         </div>
+        <h1>FUNDAMENTOS - FLEX SHRINK</h1>
+        <div class="flex-containerShrink">
+            <div class="itemShrink shrink-1 fg-1">A</div>
+            <div class="itemShrink shrink-1 fg-1">B</div>
+            <div class="itemShrink shrink-1 fg-1">C</div>
+            <div class="itemShrink shrink-1 fg-1">D</div>
+            <div class="itemShrink shrink-1 fg-1">E</div>
+        </div>
+        <p>SHRINK: 1</p>
+        <div class="flex-containerShrink">
+            <div class="itemShrink shrink-1 fg-1">A</div>
+            <div class="itemShrink shrink-1 fg-1">de acordo com o eixo do container</div>
+            <div class="itemShrink shrink-1 fg-1">C</div>
+            <div class="itemShrink shrink-1 fg-1">D</div>
+            <div class="itemShrink shrink-1 fg-1">E</div>
+        </div>
+        <p>SHRINK: 0</p>
+        <div class="flex-containerShrink">
+            <div class="itemShrink shrink-0 fg-1">A</div>
+            <div class="itemShrink shrink-0 fg-1">de acordo com o eixo do container</div>
+            <div class="itemShrink shrink-0 fg-1">C</div>
+            <div class="itemShrink shrink-0 fg-1">D</div>
+            <div class="itemShrink shrink-0 fg-1">E</div>
+        </div>
+        <p>SHRINK mix</p>
+        <div class="flex-containerShrink">
+            <div class="itemShrink shrink-0 fg-1">A</div>
+            <div class="itemShrink shrink-2 fg-1">de acordo com o eixo do container</div>
+            <div class="itemShrink shrink-2 fg-1">C</div>
+            <div class="itemShrink shrink-3 fg-1">D</div>
+            <div class="itemShrink shrink-2 fg-1">E</div>
+        </div>
+        <h1>FUNDAMENTOS - FLEX</h1>
+        <div class="flex-containerFlex">
+            <div class="itemShrink flex-1">A</div>
+            <div class="itemShrink flex-1">BbbbbB</div>
+            <div class="itemShrink flex-1">CcC</div>
+            <div class="itemShrink flex-1">D</div>
+            <div class="itemShrink flex-1">EF</div>
+        </div>
+        <h1>FLEX: 2</h1>
+        <div class="flex-containerFlex">
+            <div class="itemShrink flex-2">A</div>
+            <div class="itemShrink flex-2">BbbbbB</div>
+            <div class="itemShrink flex-1">CcC</div>
+            <div class="itemShrink flex-1">D</div>
+            <div class="itemShrink flex-1">EF</div>
+        </div>
+        <p>FLEX: 2</P>
+        <div class="flex-containerFlex">
+            <div class="itemShrink flex-2">A</div>
+            <div class="itemShrink flex-2">BbbbbB</div>
+            <div class="itemShrink flex-1">CcC</div>
+            <div class="itemShrink flex-1">D</div>
+            <div class="itemShrink flex-1">EF</div>
+        </div>
+        <h1>ORDER</h1>
+        <div class="flex-containerOrder">
+            <div class="itemOrder">1</div>
+            <div class="itemOrder">2</div>
+            <div class="itemOrder">3</div>
+            <div class="itemOrder">4</div>
+        </div>
+        <h3>ORDER diferentes</h3>
+        <div class="flex-containerOrder">
+            <div class="itemOrder o4">1</div>
+            <div class="itemOrder o2">2</div>
+            <div class="itemOrder o3">3</div>
+            <div class="itemOrder o1">4</div>
+        </div>
+        <h3>ORDER diferentes</h3>
+        <div class="flex-containerOrder direction">
+            <div class="itemOrder o4">1</div>
+            <div class="itemOrder o2">2</div>
+            <div class="itemOrder o3">3</div>
+            <div class="itemOrder o1">4</div>
+        </div>
+        <h1>FLEX ALIGN-SELF - AF</h1>
+        <section class="flex-containerAF align-containerAF">
+            <div class="itemAF auto">AAA</div>
+            <div class="itemAF auto">123</div>
+            <div class="itemAF auto">LOREM ISPSILUM DOREM LOREM</div>
+            <div class="itemAF auto">ITEM 4</div>
+        </section>
+        <h2>FLEX ALIGN-SELF - AF</h2>
+        <section class="flex-containerAF">
+            <div class="itemAF stretchAF">AAA</div>
+            <div class="itemAF centerAF">123</div>
+            <div class="itemAF startAF">LOREM ISPSILUM DOREM LOREM</div>
+            <div class="itemAF endAF">ITEM 4</div>
+        </section>
 </body>
 </html>
