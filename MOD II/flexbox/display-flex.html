@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos - Display flex</title>
+    <style>
+        .flexContainer{
+            max-width: 300px;
+            padding: 10px;
+            border: 2px solid black;
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .item{
+            background-color: aqua;
+            margin: 5px;
+        }
+        .flex-containerRc{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            list-style: none;
+            
+        }
+        .flex-item{
+            background: blue;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            margin: 5px;
+        }
+        .row{
+            flex-direction: row;
+        }
+        .row-reverse{
+            flex-direction: row-reverse;
+        }
+        .row-reverse li{
+            background-color: red;
+        }
+        .column{
+            float: left;
+            flex-direction: column;
+        }
+        .column li{
+            background: orange;
+        }
+        .column-reverse{
+            float: right;
+            flex-direction: column-reverse;
+        }
+        .column-reverse li{
+            background: purple;
+        }
+        .flex-containerWrap{
+            display: flex;
+            height: 150px;
+            border: 2px solid black;
+            max-width: 300px;
+            flex-direction: row;
+        }
+        .itemWrap{
+            font-size: 24px;
+            height: 50%;
+            text-align: center;
+            min-width: 100px;
+            width: 100px;
+            line-height: 50px;
+        }
+        .nowrap{
+            flex-wrap: nowrap;
+        }
+        .wrap{
+            flex-wrap: wrap;
+        }
+        .wrapReverse{
+            flex-wrap: wrap-reverse;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .green{
+            background-color: green;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .flex-containerFlow{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            border: 1px solid black;
+            max-width: 500px;
+        }    
+        .defaultFlow{
+            flex-flow: row nowrap;
+        }   
+        .itemFlow{
+            background-color: blueviolet;
+            margin: 5px;
+            color: white;
+            text-align: center;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .wrapFlow{
+            flex-flow: row wrap;
+        }
+        .wrapReverseFlow{
+            flex-flow: wrap-reverse;
+        }
+        .r-nowrapFlow{
+            flex-flow: row-reverse nowrap;
+        }
+        .containerJustify{
+            max-width: 400px;
+            border: 1px solid black;
+            margin: 0;
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .itemJustify{
+            background: blueviolet;
+            margin: 5px;
+            text-align: center;
+            color: white;
+        }
+        .flex-start{
+            justify-content: flex-start;
+        }
+        .flex-end{
+            justify-content: flex-end;
+        }
+        .center{
+            justify-content: center;
+        }
+        .space-between{
+            justify-content: space-between;
+        }
+        .space-around{
+            justify-content: space-around;
+        }
+        .containerAlignItem{
+            max-width: 350px;
+            border: 1px solid black;
+            display: flex;
+        }
+        .itemAlignItem{
+            background-color: blueviolet;
+            margin: 5px;
+            color: white;
+            text-align: center;
+            flex: 1;
+        }
+        .flex{
+            flex: 1;
+        }
+        .centerAlgnItem{
+            align-items: center;
+        }
+        .stretchAlgnItem{
+            align-items: stretch;
+        }
+        .startAlgnItem{
+            align-items: flex-start;
+        }
+        .endAlgnItem{
+            align-items: flex-end;
+        }
+        .baselineAlgnItem{
+            align-items: baseline;
+        }
+        .centralAlignItem{
+            height: 300px;
+            justify-content: center;
+        }
+        .centralAlignItem .itemAlignItem{
+            flex: 0;
+            padding: 20px;
+        }
+        .containerAC{
+            height: 400px;
+            max-width: 300px;
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid black;
+        }
+        .itemAC{
+            background-color: orange;
+            padding: 0 5px;
+            margin: 5px;
+            flex: 1;
+            text-align: center;
+            color: white;
+        }
+        .strechAC{
+            align-content: stretch;
+        }
+        .centerAC{
+            align-content: center;
+        }
+        .flex-startAC{
+            align-content: flex-start;
+        }.flex-endAC{
+            align-content: flex-end;
+        }.betweenAC{
+            align-content: space-between;
+        }
+        .aroundAC{
+            align-content: space-around;
+        }
+        .flex-containerGrow{
+            display: flex;
+            border: 2px solid black;
+            max-width: 300px;
+        }
+        .itemGrow{
+            background-color: orange;
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        .fg-0{
+            flex-grow: 0;
+        }
+        .fg-1{
+            flex-grow: 1;
+        }
+        .fg-2{
+            flex-grow: 2;
+        }
+        .fg-3{
+            flex-grow: 3;
+        }
+        .flex-containerBasis{
+            max-width: 300px;
+            border: 1px solid black;
+            display: flex;
+        }
+        .itemBasis{
+            background-color: coral;
+            color: white;
+            text-align: center;
+            margin: 5px;
+        }
+        .bauto{
+            flex-basis: auto;
+        }
+        .flex-containerShrink{
+            display: flex;
+            border: 1px solid black;
+            max-width: 350px;
+        }
+        .itemShrink{
+            background-color: blue;
+            font-size: 24px;
+            text-align: center;
+            margin: 5px;
+            color: white;
+        }
+        .shrink-1{
+            flex-shrink: 1;
+        }
+        .shrink-0{
+            flex-shrink: 0;
+            flex-basis: 100px;
+        }
+        .shrink-2{
+            flex-shrink: 2;
+        }.shrink-3{
+            flex-shrink: 3;
+        }
+        .flex-containerFlex{
+            display: flex;
+            border: 1px solid black;
+            max-width: 400px;
+        }
+        .itemFlex{
+            background-color: brown;
+            color: white;
+            text-align: center;
+            margin: 5px;
+        }
+        .flex-1{
+            flex: 1;
+            /*grow = 1, shrink = 1, basis = 0*/
+        }
+        .flex-2{
+            flex: 2;
+            /*grow = 2, shrink = 1, basis = 0*/
+        }
+        .flex-containerOrder{
+            display: flex;
+            max-width: 350px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+        }
+        .itemOrder{
+            flex: 1;
+            background: orange;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            margin: 5px;
+            
+        }
+        .o1{
+            order: 1;
+        }
+        .o2{
+            order: 2;
+        }
+        .o3{
+            order: 3;
+        }
+        .o4{
+            order: 4;
+        }
+        .direction{
+         flex-direction: column;   
+        }
+        .flex-containerAF{
+            display: flex;
+            max-width: 350px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            
+        }
+        .align-containerAF{
+            align-items: center;
+        }
+        .itemAF{
+            flex: 1;
+            background: green;
+            color: yellow;
+            text-align: center;
+            font-size: 24px;
+            margin: 5px;
+        }
+        .centerAF{
+            align-self: center;
+        }
+        .startAF{
+            align-self: flex-start;
+        }
+        .endAF{
+            align-self: flex-end;
+        }
+        .baselineAF{
+            align-self: baseline;
+        }
+        .stretchAF{
+            align-self: stretch;
+        }
+        .autoAF{
+            align-self: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="flexContainer">
+        <div class="item">item 1</div>
+        <div class="item">item 2</div>
+        <div class="item">item 3</div>
+    </div>
+    <ul class="flex-containerRc row">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+    </ul>
+    <ul class="flex-containerRc row-reverse">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+    </ul>
+    <ul class="flex-containerRc column">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+    </ul>
+    <ul class="flex-containerRc column-reverse">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+    </ul>
+    <h1>no wrap</h1>
+    <div class="flex-containerWrap nowrap">
+        <div class="itemWrap orange">1</div>
+        <div class="itemWrap green">2</div>
+        <div class="itemWrap blue">3</div>
+        <div class="itemWrap orange">4</div>
+    </div>
+    <h1>Wrap</h1>
+    <div class="flex-containerWrap wrap">
+        <div class="itemWrap orange">1</div>
+        <div class="itemWrap blue">2</div>
+        <div class="itemWrap green">3</div>
+        <div class="itemWrap green">4</div>
+    </div>
+    <h1>Wrap Reverse</h1>
+    <div class="flex-containerWrap wrapReverse">
+        <div class="itemWrap orange">1</div>
+        <div class="itemWrap blue">2</div>
+        <div class="itemWrap green">3</div>
+        <div class="itemWrap green">4</div>
+    </div>
+    <h1>defaultFlow: row nowrap</h1>
+    <div class="flex-containerFlow defaultFlow">
+        <div class="itemFlow">1</div>
+        <div class="itemFlow">2</div>
+        <div class="itemFlow">3</div>
+        <div class="itemFlow">4</div>
+        <div class="itemFlow">5</div>
+    </div>
+    <h1>defaultFlow: wrap</h1>
+    <div class="flex-containerFlow wrapFlow">
+        <div class="itemFlow">1</div>
+        <div class="itemFlow">2</div>
+        <div class="itemFlow">3</div>
+        <div class="itemFlow">4</div>
+        <div class="itemFlow">5</div>
+    </div>
+    <h1>defaultFlow: wrap-reverse</h1>
+    <div class="flex-containerFlow wrapReverseFlow">
+        <div class="itemFlow">1</div>
+        <div class="itemFlow">2</div>
+        <div class="itemFlow">3</div>
+        <div class="itemFlow">4</div>
+        <div class="itemFlow">5</div>
+    </div>
+    <h1>row-reverse nowrap</h1>
+    <div class="flex-containerFlow r-nowrapFlow">
+        <div class="itemFlow">1</div>
+        <div class="itemFlow">2</div>
+        <div class="itemFlow">3</div>
+        <div class="itemFlow">4</div>
+        <div class="itemFlow">5</div>
+    </div>
+    <h1>Fundamentos - justify-content</h1>
+        <p>flex-start</p>
+        <section class="containerJustify flex-start">
+            <div class="itemJustify">1</div>
+            <div class="itemJustify">item 2</div>
+            <div class="itemJustify">outro item</div>
+        </section>
+        <p>flex-end</p>
+        <section class="containerJustify flex-end">
+            <div class="itemJustify">1</div>
+            <div class="itemJustify">item 2</div>
+            <div class="itemJustify">outro item</div>
+        </section>
+        <p>flex-center</p>
+        <section class="containerJustify center">
+            <div class="itemJustify">1</div>
+            <div class="itemJustify">item 2</div>
+            <div class="itemJustify">outro item</div>
+            <div class="itemJustify">4</div>
+            <div class="itemJustify">item 5</div>
+            <div class="itemJustify">outro 6</div>
+        </section>
+        <p>flex-spaceBetween</p>
+        <section class="containerJustify space-between">
+            <div class="itemJustify">1</div>
+            <div class="itemJustify">item 2</div>
+            <div class="itemJustify">outro item</div>
+            <div class="itemJustify">4</div>
+            <div class="itemJustify">item 5</div>
+            <div class="itemJustify">outro 6</div>
+        </section>
+        <p>flex-spaceAround</p>
+        <section class="containerJustify space-around">
+            <div class="itemJustify">1</div>
+            <div class="itemJustify">item 2</div>
+            <div class="itemJustify">outro item</div>
+            <div class="itemJustify">4</div>
+            <div class="itemJustify">item 5</div>
+            <div class="itemJustify">outro 6</div>
+        </section>
+        <p>flex-AlignCenter</p>
+        <section class="containerAlignItem centerAlgnItem flex">
+            <div class="itemAlignItem">Item 1</div>
+            <div class="itemAlignItem">Item 2 é o item dois</div>
+            <div class="itemAlignItem">3</div>
+        </section>
+        <p>flex-AlignStretch</p>
+        <section class="containerAlignItem stretchAlgnItem">
+            <div class="itemAlignItem">Item 1</div>
+            <div class="itemAlignItem">Item 2 é o item dois</div>
+            <div class="itemAlignItem">3</div>
+        </section>
+        <p>flex-AlignStart</p>
+        <section class="containerAlignItem startAlgnItem">
+            <div class="itemAlignItem">Item 1</div>
+            <div class="itemAlignItem">Item 2 é o item dois</div>
+            <div class="itemAlignItem">3</div>
+        </section>
+        <p>flex-AlignEnd</p>
+        <section class="containerAlignItem endAlgnItem">
+            <div class="itemAlignItem">Item 1</div>
+            <div class="itemAlignItem">Item 2 é o item dois</div>
+            <div class="itemAlignItem">3</div>
+        </section>
+        <p>flex-AlignBaseline</p>
+        <section class="containerAlignItem baselineAlgnItem">
+            <div class="itemAlignItem"><br>Item 1</div>
+            <div class="itemAlignItem">Item 2 é o item dois</div>
+            <div class="itemAlignItem">3</div>
+        </section>
+        <p>flex-Alinhamento Central</p>
+        <section class="containerAlignItem baselineAlgnItem centralAlignItem centerAlgnItem">
+            <div class="itemAlignItem">alinha itens de acordo com o eixo do container alinhamento é diferente para linhas e colunas permite alinhamento no eixo 
+                </div>
+        </section>
+        <p>ALIGN CONTENT AC</p>
+        <p>Align Content Stretch</p>
+        <div class="containerAC strechAC">
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">alinha itens de acordo com o eixo do container alinhamento é diferente para linhas e colunas permite alinhamento no eixo</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+        </div>
+        <p>Align Content Center</p>
+        <div class="containerAC centerAC">
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">alinha itens de acordo com o eixo do container alinhamento é diferente para linhas e colunas permite alinhamento no eixo</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+        </div>
+        <p>Align Content FlexStart</p>
+        <div class="containerAC flex-startAC">
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">alinha itens de acordo com o eixo do container alinhamento é diferente para linhas e colunas permite alinhamento no eixo</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+        </div>
+        <p>Align Content FlexEnd</p>
+        <div class="containerAC flex-endAC">
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">alinha itens de acordo com o eixo do container alinhamento é diferente para linhas e colunas permite alinhamento no eixo</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+        </div>
+        <p>Align Content Between</p>
+        <div class="containerAC betweenAC">
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">alinha itens de acordo com o eixo do container alinhamento é diferente para linhas e colunas permite alinhamento no eixo</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+        </div>
+        <p>Align Content Around</p>
+        <div class="containerAC aroundAC">
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">alinha itens de acordo com o eixo do container alinhamento é diferente para linhas e colunas permite alinhamento no eixo</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+            <div class="itemAC">de acordo com o eixo do container</div>
+        </div>
+        <h1>FLEX GROW</h1>
+        <div class="flex-containerGrow">
+            <div class="itemGrow fg-0">A</div>
+            <div class="itemGrow fg-1">B</div>
+            <div class="itemGrow fg-2">B</div>
+            <div class="itemGrow fg-3">CCCCCCC</div>
+            <div class="itemGrow fg-0">D</div>
+        </div>
+        <h1>FLEX CONTAINER BASIS</h1>
+        <h3>Basis</h3>
+        <div class="flex-containerBasis">
+            <div class="itemBasis bauto fg-1">A</div>
+            <div class="itemBasis bauto fg-1">Bbb</div>
+            <div class="itemBasis bauto fg-1">C</div>
+            <div class="itemBasis bauto fg-1">DEF</div>
+        </div>
+        <h3>Basis </h3>
+        <div class="flex-containerBasis">
+            <div class="itemBasis bauto fg-0">A</div>
+            <div class="itemBasis bauto fg-0">Bbb</div>
+            <div class="itemBasis bauto fg-0">C</div>
+            <div class="itemBasis bauto fg-0">DEF</div>
+        </div>
+        <h1>FUNDAMENTOS - FLEX SHRINK</h1>
+        <div class="flex-containerShrink">
+            <div class="itemShrink shrink-1 fg-1">A</div>
+            <div class="itemShrink shrink-1 fg-1">B</div>
+            <div class="itemShrink shrink-1 fg-1">C</div>
+            <div class="itemShrink shrink-1 fg-1">D</div>
+            <div class="itemShrink shrink-1 fg-1">E</div>
+        </div>
+        <p>SHRINK: 1</p>
+        <div class="flex-containerShrink">
+            <div class="itemShrink shrink-1 fg-1">A</div>
+            <div class="itemShrink shrink-1 fg-1">de acordo com o eixo do container</div>
+            <div class="itemShrink shrink-1 fg-1">C</div>
+            <div class="itemShrink shrink-1 fg-1">D</div>
+            <div class="itemShrink shrink-1 fg-1">E</div>
+        </div>
+        <p>SHRINK: 0</p>
+        <div class="flex-containerShrink">
+            <div class="itemShrink shrink-0 fg-1">A</div>
+            <div class="itemShrink shrink-0 fg-1">de acordo com o eixo do container</div>
+            <div class="itemShrink shrink-0 fg-1">C</div>
+            <div class="itemShrink shrink-0 fg-1">D</div>
+            <div class="itemShrink shrink-0 fg-1">E</div>
+        </div>
+        <p>SHRINK mix</p>
+        <div class="flex-containerShrink">
+            <div class="itemShrink shrink-0 fg-1">A</div>
+            <div class="itemShrink shrink-2 fg-1">de acordo com o eixo do container</div>
+            <div class="itemShrink shrink-2 fg-1">C</div>
+            <div class="itemShrink shrink-3 fg-1">D</div>
+            <div class="itemShrink shrink-2 fg-1">E</div>
+        </div>
+        <h1>FUNDAMENTOS - FLEX</h1>
+        <div class="flex-containerFlex">
+            <div class="itemShrink flex-1">A</div>
+            <div class="itemShrink flex-1">BbbbbB</div>
+            <div class="itemShrink flex-1">CcC</div>
+            <div class="itemShrink flex-1">D</div>
+            <div class="itemShrink flex-1">EF</div>
+        </div>
+        <h1>FLEX: 2</h1>
+        <div class="flex-containerFlex">
+            <div class="itemShrink flex-2">A</div>
+            <div class="itemShrink flex-2">BbbbbB</div>
+            <div class="itemShrink flex-1">CcC</div>
+            <div class="itemShrink flex-1">D</div>
+            <div class="itemShrink flex-1">EF</div>
+        </div>
+        <p>FLEX: 2</P>
+        <div class="flex-containerFlex">
+            <div class="itemShrink flex-2">A</div>
+            <div class="itemShrink flex-2">BbbbbB</div>
+            <div class="itemShrink flex-1">CcC</div>
+            <div class="itemShrink flex-1">D</div>
+            <div class="itemShrink flex-1">EF</div>
+        </div>
+        <h1>ORDER</h1>
+        <div class="flex-containerOrder">
+            <div class="itemOrder">1</div>
+            <div class="itemOrder">2</div>
+            <div class="itemOrder">3</div>
+            <div class="itemOrder">4</div>
+        </div>
+        <h3>ORDER diferentes</h3>
+        <div class="flex-containerOrder">
+            <div class="itemOrder o4">1</div>
+            <div class="itemOrder o2">2</div>
+            <div class="itemOrder o3">3</div>
+            <div class="itemOrder o1">4</div>
+        </div>
+        <h3>ORDER diferentes</h3>
+        <div class="flex-containerOrder direction">
+            <div class="itemOrder o4">1</div>
+            <div class="itemOrder o2">2</div>
+            <div class="itemOrder o3">3</div>
+            <div class="itemOrder o1">4</div>
+        </div>
+        <h1>FLEX ALIGN-SELF - AF</h1>
+        <section class="flex-containerAF align-containerAF">
+            <div class="itemAF auto">AAA</div>
+            <div class="itemAF auto">123</div>
+            <div class="itemAF auto">LOREM ISPSILUM DOREM LOREM</div>
+            <div class="itemAF auto">ITEM 4</div>
+        </section>
+        <h2>FLEX ALIGN-SELF - AF</h2>
+        <section class="flex-containerAF">
+            <div class="itemAF stretchAF">AAA</div>
+            <div class="itemAF centerAF">123</div>
+            <div class="itemAF startAF">LOREM ISPSILUM DOREM LOREM</div>
+            <div class="itemAF endAF">ITEM 4</div>
+        </section>
+</body>
+</html>
