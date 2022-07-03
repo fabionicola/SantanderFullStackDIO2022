@@ -28,6 +28,13 @@
 #linha-vertical{
     width: 500px;
     border: 1px solid #140146;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+#link{
+    text-decoration: none;
+    color: rgb(50, 50, 204);
 }
 
 .voltar{
@@ -59,6 +66,14 @@ body{
     justify-content: center;
     flex-direction: column;
     width: 500px;
+    margin-bottom: 15px;
+}
+
+.wrapper-header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .group{
