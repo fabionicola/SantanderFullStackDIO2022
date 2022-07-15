@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+
+body {
+	background-color: #4e70ce10;
+	color: #073768;
+	margin: 0;
+	font-family: 'Quicksand';
+    font-weight: bold;
+}
+
+body.dark-mode {
+	background-color: #000401;
+	color: #e5e8e8;
+}
+
+main {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.principal{
+    height: 200vh;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+
+.esquerda{
+    height: 550px;
+    width: 300px;
+}
+
+.centro{
+    height: 100vh;
+	width: 100%;
+
+}
+
+.direita{
+    height: 100vh;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: first baseline;
+}
+
+.lsExercicios{
+    width: 100%;
+    display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center; 
+}
+
+.link{
+    text-decoration: none;
+    color: #073768;
+}
+
+.topo{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   padding-top: 10px;
+   margin-top: 50px;
+   background-color: #032858;
+   color: #e5e8e8;
+}
+
+#exercicio{
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    
+}
+
+footer {
+	width: 100%;
+	background-color: #032858;
+	padding: 16px;
+	color: #e5e8e8;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	font-weight: 400;
+}
+
