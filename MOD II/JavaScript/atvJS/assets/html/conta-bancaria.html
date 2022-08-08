@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/atvJS/assets/css/conta-bancaria-style.css">
+
+    <title>Conta Bancária</title>
+</head>
+
+<body>
+    <main>
+        <h1 id="page-title">CONTA BANCÁRIA</h1>
+        <p>Vamos Brincar da Banco! Crie sua conta e a Movimente!</p>
+        <div class="lista">
+            <ul>
+                <li>Agência <input id="agencia"></li>
+                <li>Número <input id="numero"></li>
+                <li>Tipo Conta
+                    <select name="selecione" id="tipo">
+                        <option value="Corrente">Corrente</option>
+                        <option value="Poupança">Poupança</option>
+                        <option value="Universitaria">Universitária</option>
+                    </select>
+                </li>
+                         </ul>
+        </div>
+        <div class="button">
+            <button aria-label="selecionar" id="btnCriar">Criar</button>
+            <button aria-label="selecionar" id="btnLimpar">LIMPAR</button>
+        </div>
+        <div class="valor">
+        
+                <p>Valor<input id="valor"></p>
+        
+        </div>
+        <div class="button">
+            <button aria-label="selecionar" id="btnDepositar">Depositar</button>
+            <button aria-label="selecionar" id="btnSacar">Sacar</button>
+        </div>
+        <h2 id="resultado">=> <span id="campo-rst"></span> !!!</h2>
+        <a href="/atvJS/index.html" class="voltar">
+            <h2>VOLTAR</h2>
+        </a>
+    </main>
+
+    <footer>
+        <p>Fábio Augusto Nicola</p>
+        Bootcamp Santander FullStack Developer @ Digital Innovation One
+    </footer>
+    <script src="/atvJS/assets/js/conta-bancaria.js" type="module"></script>
+</body>
+
+</html>
